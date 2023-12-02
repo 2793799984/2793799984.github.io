@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>琦のblog</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2023-02-03T08:56:02.404Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>琦</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java笔记</title>
+    <link href="http://example.com/2023/02/01/Java%E7%AC%94%E8%AE%B0/"/>
+    <id>http://example.com/2023/02/01/Java%E7%AC%94%E8%AE%B0/</id>
+    <published>2023-02-01T08:53:43.000Z</published>
+    <updated>2023-02-03T08:56:02.404Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一章：Java入门"><a href="#第一章：Java入门" class="headerlink" title="第一章：Java入门"></a>第一章：Java入门</h1><ol><li>Java可以在计算机的操作系统之上再提供一个Java运行环境（Java Runtime Environment，JRE）。</li><li>JRE由Java虚拟机（Java Virtual Machine，JVM）、类库、以及一些核心文件组成。</li><li>Java虚拟机的核心是所谓的字节码指令，即可以被Java虚拟机直接识别、执行的一种由0、1组成的序列代码。字节码并不是机器指令，因为它不和特定的平台相关，不能被任何平台直接识别、执行。</li><li>Java针对不同平台提供的Java虚拟机的字节码指令都是相同的，Java提供的编译器不针对特定的操作系统和CPU芯片进行编译，而是针对Java虚拟机把Java源程序编译成称为字节码的“中间代码”。字节码是可以被Java虚拟机识别、执行的代码。</li><li>Java虚拟机负责解释运行字节码，其原理是：Java虚拟机负责将字节码翻译成虚拟机所在平台的机器码，并让当前平台（本地的操作系统）运行机器码。</li><li>名称：<br>Java SE（曾称J2SE）：称为Java标准版或Java标准平台。Java SE提供了标准的Java Development Kit（JDK）。利用该平台可以开发Java桌面应用程序和低端的服务器应用程序。<br>Java EE（曾称J2EE）：称为Java企业版或Java企业平台。使用Java EE可以构建企业级的服务应用，Java EE平台包含了Java SE平台，并增加了附加类库，以便支持目录管理、交易管理和企业级消息处理等功能。</li><li>保存Java源文件时，如果源文件有多个类，那么只能由一个类是public类，如果有一个类是public类，那么源文件的名字必须和这个类的名字完全相同，扩展名是.java，如果源文件没有public类，那么源文件的名字可任意（建议和某个类的名字相同），并且扩展名是.java。</li><li>一个Java应用程序必须有一个类含有一个public static void main(String[] args)方法，称这个类为此应用程序的主类</li><li>命令<br>编译器：javac.exe，解释器：java.exe<br>编译：javac 源文件名.java，可以只编译主类的源文件，Java系统会自动地先编译主类需要的其他源文件<br>运行：java 主类名<br>反编译：javap 类名（因为反编译的操作对象是.class字节码文件）<br>压缩为jar包：使用jar.exe命令把一些类的字节码文件压缩成一个jar文件，然后将这个jar文件放到jre的扩展中，即将这个jar文件放到JDK安装目录的jre\lib\ext文件夹中。<br>生成文档：使用javadoc.exe命令制作源文件类结构的html格式文档</li><li>当使用Java解释器运行应用程序时，Java虚拟机首先将程序需要的字节码文件加载到内存，然后解释执行字节码文件。当虚拟机将主类的字节码文件加载到内存时，就为主类中的main方法分配了入口地址，以便Java解释器调用main方法开始运行程序。</li><li>注意main方法不要写错，例如漏掉static、错写为mian等错误。</li><li>一个Java程序需经历的三个步骤：编写源文件、编译源文件生成字节码和加载运行字节码。<h1 id="第二章：基本数据类型与数组"><a href="#第二章：基本数据类型与数组" class="headerlink" title="第二章：基本数据类型与数组"></a>第二章：基本数据类型与数组</h1></li><li>标识符：</li></ol><p>标识符由字母、下画线、美元符号和数字组成，长度不受限制<br>标识符的第一个字符不能是数字字符<br>标识符不能是关键字<br>标识符不能是true、false和null（尽管它们不是Java的关键字）</p><ol><li><p>Java语言使用Unicode标准字符集，最多可以识别65536个字符，Unicode字符集的前128个字符刚好是ASCII码。</p></li><li><p>基本数据类型：</p></li></ol><p>逻辑类型：<br>（1）boolean型：常量：true，false</p><p>整数类型：</p><p>（1）byte型：Java中不存在byte型常量的表示法，但可以把一定范围内的int型常量赋值给byte型变量。<br>（2）short型：和byte型类似，Java中也不存在short型常量的表示法，但可以把一定范围内的int型常量赋值给short变量。<br>（3）int型：常量：123（十进制），077（八进制），0x3ABC（十六进制）<br>（4）long型：常量：用后缀L来表示，123L（十进制），077L（八进制），0x3ABCL（十六进制）</p><p>字符类型：<br>（1）char型：常量：‘A’, ‘\t’，如char x = ‘a’;内存x中存储的是97，即字符a在Unicode表中的排序位置，因此也可以写成char x = 97;。</p><p>浮点类型：<br>（1）float型：常量后面必须要有后缀f或F。<br>（2）double型：常量后缀可以有d或D，但允许省略。</p><ol><li>基本数据类型精度从低到高排序：<br>byte short char int long float double<br>注：所占字节数分别为1，2，2，4，8，4，8</li></ol><h1 id="第三章：运算符、表示式和语句"><a href="#第三章：运算符、表示式和语句" class="headerlink" title="第三章：运算符、表示式和语句"></a>第三章：运算符、表示式和语句</h1><ol><li>位运算：</li></ol><p>按位与运算：&amp;<br>按位或运算：|<br>按位非运算：~<br>按位异或运算：^<br>（1）位相同为0，位不同为1<br>（2）例如：a ^ a = 0, a ^ 0 = a</p><ol><li>for遍历：for（int i : array){}</li></ol><h1 id="第四章：类与对象"><a href="#第四章：类与对象" class="headerlink" title="第四章：类与对象"></a>第四章：类与对象</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;第一章：Java入门&quot;&gt;&lt;a href=&quot;#第一章：Java入门&quot; class=&quot;headerlink&quot; title=&quot;第一章：Java入门&quot;&gt;&lt;/a&gt;第一章：Java入门&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;Java可以在计算机的操作系统之上再提供一个Java运行环境（J</summary>
+      
+    
+    
+    
+    <category term="编程笔记" scheme="http://example.com/categories/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Java" scheme="http://example.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2023/01/31/Hello%20World/"/>
+    <id>http://example.com/2023/01/31/Hello%20World/</id>
+    <published>2023-01-31T11:27:53.000Z</published>
+    <updated>2023-02-03T09:36:22.419Z</updated>
+    
+    <content type="html"><![CDATA[<p>你好！这是我的博客，以后会记录一些生活，笔记</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;你好！这是我的博客，以后会记录一些生活，笔记&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="编程笔记" scheme="http://example.com/categories/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="HelloWorld" scheme="http://example.com/tags/HelloWorld/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日常生活</title>
+    <link href="http://example.com/2022/08/24/%E8%AE%B0%E5%BD%95%E7%94%9F%E6%B4%BB/"/>
+    <id>http://example.com/2022/08/24/%E8%AE%B0%E5%BD%95%E7%94%9F%E6%B4%BB/</id>
+    <published>2022-08-24T11:44:09.000Z</published>
+    <updated>2023-02-03T09:29:08.303Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录生活</p><h1 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h1><div class="timenode"><div class="meta"><p><p>2023-02-06</p></p></div><div class="body"><p>寒假已经过去，高中生活即将到来</p></div></div><div class="timenode"><div class="meta"><p><p>2023-02-01</p></p></div><div class="body"><p>博客复活了，之前的博客于22年9月份，停止更新，后面数据丢失</p></div></div><div class="timenode"><div class="meta"><p><p>2022-08-25</p></p></div><div class="body"><p>面临开学😅，真的难受</p></div></div>]]></content>
+    
+    
+    <summary type="html">记录日常</summary>
+    
+    
+    
+    <category term="日常生活" scheme="http://example.com/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="日常" scheme="http://example.com/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端笔记</title>
+    <link href="http://example.com/2022/08/13/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0%E6%80%BB%E6%B1%87/"/>
+    <id>http://example.com/2022/08/13/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0%E6%80%BB%E6%B1%87/</id>
+    <published>2022-08-13T09:58:25.000Z</published>
+    <updated>2023-02-03T08:54:51.454Z</updated>
+    
+    <content type="html"><![CDATA[<p><h1>HTML学习记录</h1></p><p><h2>目录</h2></p><p><div>    <ol>        <li><a href="#a">引用标签</a></li>        <li><a href="#table">表格标签</a></li>        <li><a href="#list">列表标签</a></li>        <li><a href="#zhuanyi">转义字符</a></li>    </ol></div></p><h3 id="a">引用标签</h3><p>a标签定义超链接，用于从一张页面链接到另一张页面。&lt;a&gt;元素最重要的属性是 href 属性，它指示链接的目标。</p><h3 id="table">表格标签</h3>表格定义: `<talbe>`标签<h3 id="list">列表标签</h3>####有序列表`<ol><li>列表值</li></ol>`####无序列表####自定义列表<h3 id="zhuanyi">转义字符</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;h1&gt;HTML学习记录&lt;/h1&gt;&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;目录&lt;/h2&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;引用标签&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#table&quot;&gt;表格标签&lt;/a&gt;&lt;/</summary>
+      
+    
+    
+    
+    <category term="编程笔记" scheme="http://example.com/categories/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="CSS" scheme="http://example.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cloudreve搭建</title>
+    <link href="http://example.com/2022/08/01/cloudreve%E6%90%AD%E5%BB%BA/"/>
+    <id>http://example.com/2022/08/01/cloudreve%E6%90%AD%E5%BB%BA/</id>
+    <published>2022-07-31T16:00:00.000Z</published>
+    <updated>2022-07-31T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基于服务器搭建cloudreve私人云盘"><a href="#基于服务器搭建cloudreve私人云盘" class="headerlink" title="基于服务器搭建cloudreve私人云盘"></a>基于服务器搭建cloudreve私人云盘</h1><h3 id="官方文档：https-docs-cloudreve-org"><a href="#官方文档：https-docs-cloudreve-org" class="headerlink" title="官方文档：https://docs.cloudreve.org/"></a>官方文档：<a href="https://docs.cloudreve.org/">https://docs.cloudreve.org/</a></h3><p>cloudreve云盘优点：</p><ol><li>支持各种文件的存储，图片和视频都可以预览；</li><li>支持链接分享，可对链接加密，也可设置链接的有效期；</li><li>支持 WebDAV 协议，电脑可以直接挂载私人网盘；</li><li>支持HTTP、FTP、磁力链文件地址的离线下载；</li></ol><h3 id="搭建配置"><a href="#搭建配置" class="headerlink" title="搭建配置"></a>搭建配置</h3><h4 id="服务器版本：CentOS-7-9-2009-x86-64-Py3-7-9"><a href="#服务器版本：CentOS-7-9-2009-x86-64-Py3-7-9" class="headerlink" title="服务器版本：CentOS 7.9.2009 x86_64(Py3.7.9)"></a>服务器版本：CentOS 7.9.2009 x86_64(Py3.7.9)</h4><h4 id="面板：宝塔面板"><a href="#面板：宝塔面板" class="headerlink" title="面板：宝塔面板"></a>面板：宝塔面板</h4><blockquote><h2 id="cloudreve源代码部署"><a href="#cloudreve源代码部署" class="headerlink" title="cloudreve源代码部署"></a>cloudreve源代码部署</h2><h3 id="部署前请开放5212端口"><a href="#部署前请开放5212端口" class="headerlink" title="部署前请开放5212端口"></a>部署前请开放5212端口</h3><p>cloudreve部署方式有两种：</p><ol><li><a href="https://github.com/cloudreve/Cloudreve/releases">github下载</a></li><li>命令安装</li></ol></blockquote><h4 id="github下载"><a href="#github下载" class="headerlink" title="github下载"></a>github下载</h4><p>跳转到github后克隆项目上传到宝塔面板就行 不多赘述</p><h4 id="命令安装"><a href="#命令安装" class="headerlink" title="命令安装"></a>命令安装</h4><h1 id="启动cloudreve"><a href="#启动cloudreve" class="headerlink" title="启动cloudreve"></a>启动cloudreve</h1><h4 id="解压获取到的主程序"><a href="#解压获取到的主程序" class="headerlink" title="解压获取到的主程序"></a>解压获取到的主程序</h4><pre><code>tar -zxvf cloudreve_VERSION_OS_ARCH.tar.gz</code></pre><h4 id="赋予执行权限"><a href="#赋予执行权限" class="headerlink" title="赋予执行权限"></a>赋予执行权限</h4><pre><code>chmod +x ./cloudreve</code></pre><h4 id="启动-Cloudreve"><a href="#启动-Cloudreve" class="headerlink" title="启动 Cloudreve"></a>启动 Cloudreve</h4><pre><code>./cloudreve</code></pre><p>执行命令后Cloudreve 默认会监听5212端口。你可以在浏览器中访问<a href="http://服务器IP:5212进入Cloudreve。">http://服务器IP:5212进入Cloudreve。</a></p><h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>Cloudreve 在首次启动时，会创建初始管理员账号，请注意保管管理员密码，此密码只会在首次启动时出现。如果您忘记初始管理员密码，需要删除同级目录下的cloudreve.db，重新启动主程序以初始化新的管理员账户。</p><p>启动后修改默认的账号密码 修改后返回终端<code>Ctrl+c</code>断开连接</p><blockquote><h2 id="cloudreve配置"><a href="#cloudreve配置" class="headerlink" title="cloudreve配置"></a>cloudreve配置</h2><p>进入宝塔软件商店，下载Superviosr<br><img src="../img/cloudreve搭建/Superviosr.png" alt="Superviosr"></p></blockquote><p>进入Supervisor，点击添加守护进程<br>名称随便填<br>启动用户就选root<br>运行目录选你解压的目录<br>启动命令在你写的运行目录后面加一个cloudreve<br><img src="../img/cloudreve搭建/进程守护.png" alt="Superviosr"></p><p>此时cloudreve基本已经搭建好了</p><blockquote><h2 id="aria2搭建"><a href="#aria2搭建" class="headerlink" title="aria2搭建"></a>aria2搭建</h2></blockquote><p>下载脚本</p><p><code>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh</code></p><p>运行脚本</p><p><code>./aria2.sh</code></p><blockquote><h2 id="填坑"><a href="#填坑" class="headerlink" title="填坑"></a>填坑</h2></blockquote>]]></content>
+    
+    
+    <summary type="html">基于宝塔面版搭建cloudreve网盘</summary>
+    
+    
+    
+    <category term="服务器教程" scheme="http://example.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="服务器" scheme="http://example.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+</feed>

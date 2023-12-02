@@ -1,0 +1,91 @@
+@font-face{
+    font-family: '极影毁片圆 Medium';
+    src: url('./fonts/极影毁片圆.ttf');   
+}
+
+body {
+    font-family: '极影毁片圆 Medium';
+}
+
+.avatar-img img {
+    content: url(http://q2.qlogo.cn/headimg_dl?dst_uin=2793799984&spec=640);
+}
+
+
+/*去除黑色遮罩 */
+#page-header:not(.not-top-img):before {
+    background-color: rgba(255,255,255,0);
+}
+
+/*最新文章图片圆角化处理*/
+.thumbnail img {
+    border-radius: 16px;
+}
+
+
+/*页码颜色更替*/
+#pagination .page-number.current {
+    background: #ffffff;
+    color: #4f4f4f;
+}
+
+/*虚化卡片*/
+#recent-posts > .recent-post-item {
+    background: rgba(255, 255, 255, 0.8);
+}
+.card-widget {
+    background: rgba(255, 255, 255, 0.8)!important;
+}
+
+/*文章内一图流*/
+element.style {
+    background-image:url(https://i.328888.xyz/2023/02/01/8JQbw.jpeg);
+}
+
+
+/*指针样式*/
+body {
+    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),
+        default;
+}
+/*链接小手样式*/
+a,
+img {
+    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),
+        default;
+}
+
+/* 虚化卡片*/
+div#post {
+    background: rgba(255, 255, 255, 0.8)!important;
+}
+
+/*文章右边美化*/
+#aside-content #card-toc .toc-content .toc-link.active {
+    border-radius: 7px;
+    background: #54b1f3;
+}
+
+/*圆角下一篇文章*/
+#pagination.pagination-post {
+    border-radius: 20px;
+}
+
+/*圆角化头像下方github跳转按钮*/
+#aside-content .card-info #card-info-btn {
+    border-radius: 20px;
+}
+
+/*去除博客底部黑色遮罩*/
+#footer:before {
+    background-color: rgb(0 0 0 / 0%);
+}
+
+:root{
+    /*--text-bg-hover: rgba(73,177,245,0.7);*/
+    --text-bg-hover: rgb(252 213 0 / 65%);
+}
+
+a.card-category-list-link, a.card-archive-list-link{
+    border-radius: 8px;
+}
